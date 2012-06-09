@@ -1,0 +1,159 @@
+
+	.PSPDataTableControl
+	{
+		width: 100%;
+		background-color: #f4efe7;
+		border: 1px solid black;
+		padding: 0px;
+	}
+	
+	.PSPDataTableHeading
+	{
+	    background-color: #ED1D20;
+		color: White;
+		font-weight: bold;
+		padding: 3px;  
+		text-align: center;
+		border-bottom: 1px solid black;
+		
+	}
+	.PSPDataTableControl .PSPDataTableHelperText
+	{
+	    color: gray;
+	    font-size: 90%;
+	}
+	
+	.PSPDataTableTable
+	{
+		margin: 1px;
+		//margin: 0px;
+	    border-collapse: collapse;
+		width: 99%;
+		margin-top: 2px;
+	}
+	.PSPDataTableTable .PSPDataTableRowHover
+	{
+		background-color: White;
+		cursor: pointer;
+	}
+	
+	.PSPDataTableTable .PSPDataTableHeaders th
+	{
+	    background-color: #e7e8e9;
+	    color: black;
+	    font-weight: bold;
+	    
+	}
+	.PSPDataTableTable .PSPDataTableHeaders th a
+	{
+	    color: black;
+	}
+	.PSPDataTableTable .PSPDataTableSelectorHeader
+	{
+		width: 10px;	
+	}
+	.PSPDataTableTable td, .PSPDataTableControl th
+	{
+		padding: 4px;
+		border: 1px solid #cccccc;
+		
+	}
+	.PSPDataTableTable td
+	{
+	    
+	}
+	 .PSPDataTableTable th
+	 {
+		
+	 }
+	 .PSPDataTableTable .PSPDataTableRowSelector
+	 {
+		text-align: center;
+		
+	 }
+	.PSPDataTableTable .SelectedRow
+	{
+		background-color: #daf253;
+	}
+	.PSPDataTableTable  .SelectedRow.Hover
+	{
+		background-color: #dff855;
+	}
+	.PSPDataTableTable .PSPDataTableFooter
+	{
+	    text-align: right;
+	}
+	.PSPDataTableTable .PSPDataTableFooter a
+	{
+	    color: Black;
+	    font-size: 80%; 
+	}
+	.PSPDataTableButtons
+	{
+	    padding: 3px;  
+		text-align: center;
+		background-color: #e7e8e9;
+		height: 2.5em;
+	}
+	.PSPDataTableButton
+	{
+		background-color: #cccccc;
+		float: left;
+	    
+		margin: 3px;
+	}
+	.PSPDataTableButton a
+	{
+		display: block;
+		width: 5em;
+		float: left;
+	}
+	.PSPDataTableButton a:hover 
+	{
+		background-color: White;
+		cursor: pointer;
+	}
+	.PSPDataTableButton div
+	{
+		color: Black;
+		font-weight: normal;
+		border: 1px solid gray;
+		padding: 3px;
+	}
+	
+	.PSPDataTableButtonDown
+	{
+		background-color: yellow;
+	}
+    .PSPDataTableButtonsHelper
+	{
+	    float: left;
+	    margin-left: 3px;
+	    
+	}
+	.PSPDataTableButtonsHelper div
+	{
+	    margin-top: 5px;
+	    text-align: left;
+	}
+	
+	.PSPDataTableLoading
+	{
+	    position: absolute;
+	    width: 13em;
+	    height: 4em;
+	    font-weight: bold;
+	    padding: 1em;
+	    background-color: #C1E1EC;
+	    border:1px solid white;
+	    color: #555555;
+	    top: 15%;
+	    left: 50%;
+	    z-index: 10;
+	}
+	
+	
+	.PSPDataTableBottomText
+	{
+	    padding-top: 5px;
+	}

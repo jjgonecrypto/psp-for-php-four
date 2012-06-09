@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="Controls.xslt" ?>
+<controls>
+  <author>Justin J. Moses</author>
+  <copyright>Copyright &#169; MMVII</copyright>
+  <baseattributes>
+    <attribute>
+      <name>id</name>
+      <property>ID</property>
+      <type>string</type>
+      <description>
+        The unique identifier of the control within the template. If none is provided, 
+        then one will be assigned during construction.
+      </description>
+      <example>myControl</example>
+    </attribute>
+    <attribute>
+      <name>runat</name>
+      <description>
+        This is a flag to the parsing engine and must be set to "server" for 
+        correct parsing. Otherwise, the system will ignore the element, namespace prefix or no.
+      </description>
+      <example>server</example>
+    </attribute>
+  </baseattributes>
+  
+  <control>
+    <name>Literal</name>
+    <description>For the representation of literal text in a page. This control is rendered simply as text by default. 
+    However, it can be made to render as any valid XML node via the TAG attribute.</description>
+    <attributes includebase="true">
+      <attribute>
+        <name>tag</name>
+        <property>NewNodeName</property>
+        <type>String</type>
+        <default>none</default>
+        <description>The type of tag used to replace this literal control.</description>
+        <example>div</example>
+      </attribute>
+      <attribute>
+        <name>text</name>
+        <property>Text</property>
+        <type>String</type>
+        <default>none</default>
+        <description>The text to be rendered inside the node.</description>
+        <example>text to insert</example>
+      </attribute>
+    </attributes>
+  </control>
+
+  <control>
+    <name>Repeater</name>
+    <description>For the repetition of some template on a page. Some datasource is bound 
+    to the control and for a certain number of repetitions, the repeater will output 
+    that many templates. The controls inside the repeater are unique and cannot be accessed from the Page. 
+    The user must use a Databinding event to access and modify these controls.</description>
+    <attributes includebase="true">
+      <attribute>
+        <name>start</name>
+        <property>Start</property>
+        <type>Int</type>
+        <default>0</default>
+        <description>The index of the row to start outputting at.</description>
+        <example>10</example>
+      </attribute>
+      <attribute>
+        <name>limit</name>
+        <property>Limit</property>
+        <type>Int</type>
+        <default>[All]</default>
+        <description>The number of rows to output.</description>
+        <example>12</example>
+      </attribute>
+    </attributes>
+    <children>
+      <child>
+        <name>template</name>
+        <status>Required</status>
+      </child>
+      <child>
+        <name>item</name>
+        <status>Optional</status>
+        <description>Renders this item from the repeater's datasource.</description>
+        <attributes>
+          <attribute>
+            <name>repeater</name>
+            <status>Required</status>
+            <description>The ID of the repeater this item is for.</description>
+          </attribute>
+          <attribute>
+            <name>datafield</name>
+            <status>Required</status>
+            <description>
+              The datafield that this item is for.
+              Optionally, this may occur as a node within this node.
+            </description>
+            <example>&lt;item&gt;
+  &lt;datafield&gt;
+    ...
+  &lt;&#47;datafield&gt;
+&lt;&#47;item&gt;</example>
+          </attribute>
+          <attribute>
+            <name>forparent</name>
+            <status>[Optional]</status>
+            <type>Bool</type>
+            <description>States if this item should behave like an ATTRIBUTE control and modify one of it's 
+            parent's attributes. </description>
+          </attribute>
+          <attribute>
+            <name>attribute</name>
+            <status>[Required if forparent is TRUE]</status>
+            <description>The name of the parent's attribute to modify. The attribute in the parent node itself, should 
+              use the {itemid} format to specify where to place the item within the attribute. 
+            </description>
+            <example>&lt;psp:repeater&gt;
+  &lt;template&gt;
+    &lt;p class="Paragraph {myItem}"&gt;
+      &lt;item id="myItem" 
+          datafield="somename" 
+          forparent="true" 
+          attribute="class" &#47;&gt;
+    &lt;&#47;p&gt;
+  &lt;&#47;template&gt;
+&lt;&#47;psp:repeater&gt;</example>
+          </attribute>
+          <attribute>
+            <name>id</name>
+            <status>[Required if forparent is TRUE]</status>
+            <description>Must be present within an item that works for the parent attribute to allow 
+            text formatting in the parent's attribute (see the attribute named "attribute" above)
+            </description>
+          </attribute>
+        </attributes>
+      </child>
+    </children>
+  </control>
+
+
+  <control>
+    <name>Grid</name>
+    <description>
+      A table of output, created to display the output of a datasource. 
+      It can also be used to select rows from this data, and buttons can be 
+      added that can postback with these selected rows to the current Page.
+    </description>
+    <attributes includebase="true">
+      <attribute>
+        <name>heading</name>
+        <property>Heading</property>
+        <type>String</type>
+        <default></default>
+        <description>The heading text for the grid.</description>
+        <example>Dealers Table</example>
+      </attribute>
+      <attribute>
+        <name>enablepaging</name>
+        <property>EnablePaging</property>
+        <type>Bool</type>
+        <default>false</default>
+        <description>Whether or not to limit the output to a certain PageSize.</description>
+        <example>true</example>
+      </attribute>
+      <attribute>
+        <name>pagesize</name>
+        <property>PageSize</property>
+        <type>Int</type>
+        <default>10</default>
+        <description>The number of rows to output in one page.</description>
+        <example>15</example>
+      </attribute>
+      <attribute>
+        <name>selector</name>
+        <property>Selector</property>
+        <type>RADIO | CHECKBOX | NONE</type>
+        <default>RADIO</default>
+        <description>The type of row selector.</description>
+        <example>CHECKBOX</example>
+      </attribute>
+      <attribute>
+        <name>selectordatafield</name>
+        <property>SelectorDatafield</property>
+        <type>String</type>
+        <default>"id"</default>
+        <description>The name of the datafield that corresponds to the value the selector should contain.</description>
+        <example>id</example>
+      </attribute>
+      <attribute>
+        <name>helpertext</name>
+        <property>HelperText</property>
+        <type>String</type>
+        <default></default>
+        <description>Small text to supplement the heading, located just underneath it, and just above the data.</description>
+        <example>Text goes here</example>
+      </attribute>
+    </attributes>
+  </control>
+
+  <control>
+    <name>Ajax</name>
+    <description>
+      An automation of Ajax that currently takes in input controls from the page, 
+      and allows you to bind back to the output controls in the Ajax event.
+    </description>
+    <attributes includebase="true">
+      <attribute>
+        <name>instancer</name>
+        <property>InstancerID</property>
+        <type>string</type>
+        <default></default>
+        <example>ControlID</example>
+        <description>The ID of the control (currently only Anchor is supported) that should cause the ajax event to commence.</description>
+      </attribute>
+      <attribute>
+        <name>outputfunction</name>
+        <property>OutputFunction</property>
+        <type>string</type>
+        <default></default>
+        <example>someFunction</example>
+        <description>The name of a user defined javascript function to handle each row of output from the Ajax request. It should take a single input - an associative array of the returned data.</description>
+      </attribute>
+    </attributes>
+    <children>
+      <child>
+        <name>input</name>
+        <status>[Optional]</status>
+        <description>
+          An input item for the Ajax event.
+        </description>
+        <attributes>
+          <attribute>
+            <name>label</name>
+            <type>string</type>
+            <status>Required</status>
+            <description>A GET style label for this input. This label will be used in the Ajax event when calling the "GetInput" method.</description>
+            <example>&lt;input label="id"&gt;
+  InputControlID
+&lt;input&gt;</example>
+          </attribute>
+        </attributes>
+      </child>
+    </children>
+  </control>
+
+  <control>
+    <name>Anchor</name>
+    <description>
+      A PSP anchor essentially masks a normal HTML anchor, with one special feature.
+      Use of ~ within the HREF attribute inserts the base website link, increasing portability.
+    </description>
+    <attributes includebase="true">
+      <attribute>
+        <name>href</name>
+        <property>Href</property>
+        <type>string</type>
+        <default></default>
+        <example>~/Pages/home.php</example>
+        <description>Use of the tilda (~) means the base web link.</description>
+       </attribute>
+    </attributes>
+    
+  </control>
+
+  <control>
+    <name>Attribute</name>
+    <description>
+      A control that can modify one of it's parent's (XHTML only - not another control) attributes.
+      The parent's attribute should use the format {idAttr} for the attribute value, where idAttr is the ID of the attribute
+      control.
+    </description>
+    <attributes includebase="true">
+      <attribute>
+        <name>attribute</name>
+        <property>Attribute</property>
+        <type>string</type>
+        <description>The name of the parent's attribute to modify.</description>
+      </attribute>
+      <attribute>
+        <name>value</name>
+        <property>Value</property>
+        <type>string</type>
+        <description>The value to insert into the parent.</description>
+      </attribute>
+    </attributes>
+  </control>
+
+  <control>
+    <name>Button</name>
+    <attributes includebase="true">
+      <attribute>
+        <name>name</name>
+        <property>Name</property>
+        <type>string</type>
+        <default></default>
+        <description>
+          The name for the button, and hence the text on it's face.
+        </description>
+      </attribute>
+      <attribute>
+        <name>postback</name>
+        <property>DoesPostback</property>
+        <type>bool</type>
+        <default>TRUE</default>
+        <description>
+          Whether or not this button posts the form, or is simply a link.
+        </description>
+      </attribute>
+      <attribute>
+        <name>href</name>
+        <property>Href</property>
+        <type>string</type>
+        <default></default>
+        <description>The link for this button - used if postback is false.</description>
+      </attribute>
+      <attribute>
+        <name>title</name>
+        <property>Title</property>
+        <type>string</type>
+        <default></default>
+        <description>
+          Tooltip for this button.
+        </description>
+      </attribute>
+    </attributes>
+  </control>
+
+  <control>
+    <name>Content</name>
+    <attributes includebase="true">
+      <attribute>
+        <name></name>
+        <property></property>
+        <type></type>
+        <default></default>
+        <description></description>
+      </attribute>
+    </attributes>
+  </control>
+
+  <control>
+    <name>Region</name>
+    <attributes includebase="true">
+      <attribute>
+        <name></name>
+        <property></property>
+        <type></type>
+        <default></default>
+        <description></description>
+      </attribute>
+    </attributes>
+  </control>
+
+  <control>
+    <name>Form</name>
+    <attributes includebase="true">
+      <attribute>
+        <name></name>
+        <property></property>
+        <type></type>
+        <default></default>
+        <description></description>
+      </attribute>
+    </attributes>
+  </control>
+
+  <control>
+    <name>GroupItem</name>
+    <attributes includebase="true">
+      <attribute>
+        <name></name>
+        <property></property>
+        <type></type>
+        <default></default>
+        <description></description>
+      </attribute>
+    </attributes>
+  </control>
+
+  <control>
+    <name>Html</name>
+    <description>
+      Any XHTML Element within a document. These elements should have the runat="server"
+      attribute and may optionally have the id and visible attribute.
+      Used mostly to either toggle visibility of XHTML elements via the Page, or to
+      add attributes during the Page_Load() event.
+    </description>
+    <attributes includebase="true">
+      <attribute>
+        <name></name>
+        <property></property>
+        <type></type>
+        <default></default>
+        <description></description>
+      </attribute>
+    </attributes>
+  </control>
+
+  <control>
+    <name>Input</name>
+    <attributes includebase="true">
+      <attribute>
+        <name></name>
+        <property></property>
+        <type></type>
+        <default></default>
+        <description></description>
+      </attribute>
+    </attributes>
+  </control>
+
+  <control>
+    <name>InputGroup</name>
+    <attributes includebase="true">
+      <attribute>
+        <name></name>
+        <property></property>
+        <type></type>
+        <default></default>
+        <description></description>
+      </attribute>
+    </attributes>
+  </control>
+  
+  <control>
+    <name>Placeholder</name>
+    <description>
+      A placeholder allowing programmatic insertion of child controls.
+    </description>
+    <attributes includebase="true">
+    </attributes>
+  </control>
+  
+  <!--
+  
+  <control>
+    <name></name>
+    <attributes>
+      <attribute>
+        <name></name>
+        <property></property>
+        <type></type>
+        <default></default>
+        <description></description>
+      </attribute>
+    </attributes>
+  </control>
+  
+   -->
+  
+</controls>

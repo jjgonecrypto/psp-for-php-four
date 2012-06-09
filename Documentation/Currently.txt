@@ -1,0 +1,43 @@
+Appying Application.config
+==========================
+
+
+This involves:
+
+*   Changing initialise.php to parse the app.config file during the requirement 
+    process. ->  Config::Load(file) 
+*   In initialise.php also removing the Database from there and putting it 
+    into WebsiteControl.
+*   Fixing Config to handle the parsing in the Load() method.
+*   Working out the Config static methods to retrieve variables.
+*   Take the languages from Page to WebsiteControl.   
+*   Look at how Database is used. Might want to make it accessible via a static 
+    method in the Database class.
+*   Amending current PSP implementations to handle the new common config method.
+
+
+NB: Could possibly keep the config object serialised, tho as the caching is a setting in config,
+    this serialised data should reside within the same directory as the config.
+    
+    
+ALT:
+
+    Alternatively, instead of parsing the config file as such, you could simply 
+    leave it in document format, and parse it using xpath when results are to be retrieved. 
+    This isn't a beautiful soln, but will make the process quicker. 
+    Otherwise, you could have objects for all of the config, and serialise them 
+    as needed the first time the program is run... This would include global objects 
+    like the Database and the Cache, etc... This is quite a nice soln, and is closer 
+    to .NET in many ways really. It allows for full OO but also takes some of the pressure 
+    off the server. However, this can be used quite extensively, and should be 
+    considered as to a soln using both PHP 4 and 5 that is satisfactory.
+    
+    Means having a 
+    
+    Config.Settings.Website         [these Settings need global access : eg. Website, Database]
+    Config.Settings.Database
+    Config.Settings.Cache
+    Config.Settings.Errors 
+    
+    Config.Keys
+    Config.Languages 

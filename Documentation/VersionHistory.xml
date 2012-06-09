@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="VersionHistory.xslt" ?>
+<history>
+  <author>Justin J. Moses</author>
+  <copyright>Copyright &#169; MMVII</copyright>
+  <version>
+    <major>0</major>
+    <minor>4</minor>
+    <revision>3</revision>
+    <date>Jan 15, 2007</date>
+    <notes>
+      <note>
+        Fixed the repeater control to properly use a template node, and 
+        to build child controls only at render time. Also implemented the 
+        databinding delegate - which is simply called with the RepeaterRow 
+        built at render time.
+      </note>
+      <note>
+        Began XML and XSLT documentation.
+      </note>
+      <note>
+        Fixed each control to render with Owner object not Page object.
+      </note>
+      <note>
+        Fixed static GetPage method that wasn't correctly setting the 
+        reference to the global variable.
+      </note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>4</minor>
+    <revision>4</revision>
+    <date>Jan 16, 2007</date>
+    <notes>
+      <note>
+        Created <b>attribute</b> control.
+      </note>
+      <note>
+        Made button control utilise the attribute control.
+      </note>
+      <note>
+        Reorganised the way controls load attributes to better comply with 
+        programmatic loading.
+      </note>
+      <note>
+        Implemented DOM encapsulating functionality.
+      </note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>4</minor>
+    <revision>5</revision>
+    <date>Jan 17, 2007</date>
+    <notes>
+      <note>Allowed the absence of HEAD and TITLE nodes in the page.</note>
+      <note>Fixed Error Handler to use page controls.</note>
+      <note>Created a proper class for recursively finding files, and implemented the Theme 
+      setting and Common Scripts inclusion.</note>
+      <note>Allowed attributes from controls to pass through to the final rendered node, and 
+      implemented an AddAttribute method in PageControl to add to these on the fly.</note>
+      <note>Created Input control.</note>
+      <note>Created an implemented InputGroup control. Renamed CheckItem to GroupItem. Fixed 
+      issue with Repeater template not setting the parent, and not calling Load() and 
+      Preload() methods.</note>
+      <note>Created GetBase() method in BasHasControls to find base Page or Master. 
+      Created, but not tested, GetAncestor() as well.</note>
+      <note>Fixed AddControl to ensure duplicate control IDs aren't found.</note>
+    </notes>
+  </version>
+  
+  <version>
+    <major>0</major>
+    <minor>4</minor>
+    <revision>6</revision>
+    <date>Jan 19, 2007</date>
+    <notes>
+      <note>Added AddChild() method to GroupInput. </note>
+      <note>Began work on Ajax control and implementation.</note>
+      <note>Created InlineCode for template inserts. Works just for Page Controls properties and methods.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>4</minor>
+    <revision>7</revision>
+    <date>Jan 21, 2007</date>
+    <notes>
+      <note>Allowed the use of Inline code blocks within the repeater control, to call controls within the 
+      repeater template only.</note>
+      <note>Fixed Grid and Javascript selectors. Grid buttons implemented. Waiting for postback.</note>
+    </notes>
+  </version>
+  
+  <version>
+    <major>0</major>
+    <minor>4</minor>
+    <revision>8</revision>
+    <date>Jan 22, 2007</date>
+    <notes>
+      <note>Put PostBack events into BaseHasControls, with the implication that even Controls can call postback events, so if you 
+      wish to put an event onto a control within a control who's children can't be accessed (such as Grid or Repeater), you use 
+      $specialControl->AddPostbackEvent($postbackControl, array($page, $functionName)) </note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>4</minor>
+    <revision>9</revision>
+    <date>Jan 23, 2007</date>
+    <notes>
+      <note>Fixed the Preload event within controls. Now called twice -> once after Init and once after Load.</note>
+      <note>Implemented InputGroups on postback and thus the grid selectors now work.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>0</revision>
+    <build>B</build>
+    <date>Jan 25, 2007</date>
+    <notes>
+      <note>Integrated basic AJAX support.</note>
+    </notes>
+  </version>
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>0</revision>
+    <build>D</build>
+    <date>Jan 25, 2007</date>
+    <notes>
+      <note>Working on AJAX control -> currently broken.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>0</revision>
+    <build>R</build>  
+    <date>Jan 26, 2007</date>
+    <notes>
+      <note>Added DataRow class and implemented it for datasources. Added DataRowEnumerator, and DataField.</note>
+      <note>Fixed inline code blocks to allow "this" instead of controlID, and 
+      forced parsing within Ajax control.</note>
+      <note>Pass the Ajax control to the Page_Ajax() event now. Encapsulated all calls to 
+      Ajax via that.</note>
+      <note>Fixed errorpage bug that didn't show the page when ajax was enabled.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>1</revision>
+    <date>Jan 31, 2007</date>
+    <notes>
+      <note>Added Cookie, Session, Server, UrlVariable and Uri classes. </note>
+      <note>Included copyright and licencing on each file.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>2</revision>
+    <build>alpha</build>
+    <date>Feb 5, 2007</date>
+    <notes>
+      <note>Started work on two new controls: DataTable (an ajax and javascript grid) and InputTable, a dynamic input table.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>2</revision>
+    <build>beta</build>
+    <date>Feb 6, 2007</date>
+    <notes>
+    <note>Continued on DataTable control, sorting and paging have been implemented. Selector postback is an issue though, due to setup.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>2</revision>
+    <build>Release</build>
+    <date>Feb 7, 2007</date>
+    <notes>
+      <note>DataTable control now works and integrated with jsi 1.0.05</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>3</revision>
+    <build>Alpha</build>
+    <date>Feb 8, 2007</date>
+    <notes>
+      <note>Tied psp to jsi with the use of prototyping. PSP is now a jsi package, and all calls to any js in PSP 
+      are done via the jsi.psp package object.</note>
+      <note>InputTable control under construction</note>
+      <note>Fixed some bugs in the Config file.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>3</revision>
+    <build>Beta</build>
+    <date>Feb 14, 2007</date>
+    <notes>
+      <note>
+        Minor additions to InputTable control.
+      </note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>3</revision>
+    <build>Delta</build>
+    <date>Feb 18, 2007</date>
+    <notes>
+      <note>
+        Minor additions to InputTable control again - moved content into JSI.
+      </note>
+      <note>
+        Fixed GetClientID to append parent controls ID (if any) to a child control.
+      </note>
+    </notes>
+  </version>
+
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>3</revision>
+    <build>Release</build>
+    <date>Feb 20, 2007</date>
+    <notes>
+      <note>
+        InputTable control complete.
+      </note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>4</revision>
+    <date>Feb 22, 2007</date>
+    <notes>
+      <note>Mail now sends as both Plain and HTML by default.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>5</revision>
+    <build>Alpha</build>
+    <date>Feb 23, 2007</date>
+    <notes>
+      <note>DomNode SetNodeContent() now uses htmlentites encoding.</note>
+    </notes>
+  </version>
+
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>5</revision>
+	<build>Beta</build>
+<date>Apr 11, 2007</date>
+    <notes>
+	<note>Started separating the projects into psp, jsi and the application</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>5</revision>
+    <build>Release</build>
+    <date>Apr 12, 2007</date>
+    <notes>
+      <note>Projects successfully separated.</note>
+      <note>GroupItem now supports non-grouped check/radio input.</note>
+      <note>Button control uses onclick attribute instead of href for link.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>6</revision>
+    <date>Apr 20, 2007</date>
+    <notes>
+      <note>Fixed bug preventing controls from automatically becoming loaded as a BasePage'es property. This effects Pages, Masterpages and Controls.</note>
+      <note>Fixed bug in GetOwner() method that wasn't registering RepeaterRow as a valid Owner.</note>
+      <note>Fixed bug in Ajax control that prevented new lines of output to register (was duplicating the output due to a missing ampersand).</note>
+      <note>Added outputfunction property to Ajax.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>7</revision>
+    <date>Apr 24, 2007</date>
+    <notes>
+      <note>Sole Groupitem control is now is handled via postback as well.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>8</revision>
+    <date>Apr 27, 2007</date>
+    <notes>
+      <note>Updated the system to comply with JSI 1.1.0 (prototyped)</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>9</revision>
+    <date>May 9, 2007</date>
+    <notes>
+      <note>Added method SetBottomText() to DataTable to allow text to appear to the right of the button row.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>10</revision>
+    <date>May 11, 2007</date>
+    <notes>
+      <note>Fixed a bug in Button that prevented an onclick event for a non-postback button.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>11</revision>
+    <date>May 12, 2007</date>
+    <notes>
+      <note>SetBottomText() now takes a second argument for cssclass.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>12</revision>
+    <date>May 28, 2007</date>
+    <notes>
+      <note>Took out bad references in Common_Config that were closely tied to the OEM CMS project. 
+      There is still work to do though.</note>
+      <note>Changed order of .initialise to load App_Config immediately after Common_Config </note>
+      <note>Fixed issue with globals in WebsiteControl class</note>
+      <note>Fixed issue in PspDomDocument where XPAthQuery wasn't returning null if a query had no results. - it was erroring.</note>
+      <note>Added IsElement() method to PspDomNode class.</note>   
+    </notes>
+  </version>
+  
+  <version>
+    <major>0</major>
+    <minor>5</minor>
+    <revision>13</revision>
+    <date>May 28, 2007</date>
+    <notes>
+      <note>Resource is only just working. For any property of any control, the resource will load the node in as that property. 
+      However, only in Literal->Text is is implemented for this control to use the Text data. (Allowing us to use HTML inside 
+      the resource - a VERY important aspect of a resource)</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>6</minor>
+    <revision>0</revision>
+    <date>May 29, 2007</date>
+    <notes>
+      <note>Fixed issue with Html controls not displaying added attributes.</note>
+      <note>Made radio and checkbox group items render the labels with the display</note>
+      <note>Updated Button control to allow no templates - just a normal button.</note>
+      <note>InputGroup control now allows child GroupItem controls that don't require </note>
+      <note>Resource works like this. For Literal.Text it sets an Element, for anything else, it sets 
+      node content.</note>
+      <note>HTML controls now allow the use of TILDA (~) in any attribute, it will be replaced with the home link. NOTE: this 
+      is still hard coded as the constant CMS_WEBSITE_LINK</note>
+      <note>Added Language class and support. Needs review though.</note>   
+    </notes>
+  </version>
+
+
+  <version>
+    <major>0</major>
+    <minor>6</minor>
+    <revision>1</revision>
+    <date>May 31, 2007</date>
+    <notes>
+      <note>Added new control: Conditional. Handles IE conditional comments, allowing child controls such as Html Link control using ~. Also, the style sheet theme is always added before the first Conditional comment found.</note>
+      <note>Added Culture class for culture support inside Languages. Further, if there is a CurrentLanguage, the page renders this into the lang attribute of the HTML node. Will error if HTML node doesn't exist.</note>
+      <note>HTML controls now have their node name in their client IDs.</note>
+    </notes>
+  </version>
+
+  <version>
+    <major>0</major>
+    <minor>6</minor>
+    <revision>2</revision>
+    <date>June 1, 2007</date>
+    <notes>
+      <note>Changed the loading of templates to occur in the Init() event. This effect was in BaseHasControls and 
+      effects Pages/MasterPages and Controls. Note: ensured call the parent Control_Init() of a Control's Init() event is ALWAYS first.</note>
+      <note>Basic caching implemented on URI/LANGUAGE. Note: limited - DON'T DO any actions via GET query string as they are cached.</note>   
+    </notes>
+  </version>
+
+
+  <version>
+    <major>0</major>
+    <minor>6</minor>
+    <revision>3</revision>
+    <date>June 15, 2007</date>
+    <notes>
+      <note>Started work with app.config</note>
+    </notes>
+  </version>
+
+
+  <version>
+    <major>0</major>
+    <minor>6</minor>
+    <revision>4</revision>
+    <date>August 5, 2007</date>
+    <notes>
+      <note>Continuing work with app.config</note>
+    </notes>
+  </version>
+  <!--
+  
+  
+  <version>
+    <major></major>
+    <minor></minor>
+    <revision></revision>
+    <date></date>
+    <notes>
+      <note></note>
+    </notes>
+  </version>
+  
+   -->
+  
+</history>

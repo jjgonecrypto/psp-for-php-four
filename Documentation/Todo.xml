@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="Todo.xslt" ?>
+<todo>
+  <author>Justin J. Moses</author>
+  <copyright>Copyright &#169; MMVII</copyright>
+  <item>
+    <name>XLST documentation</name>
+    <desc>Put all of the documentation into XSLT form. Include a 
+    table of contents, and a PHPDoc class document</desc>
+    <priority>Low</priority>
+    <order>1</order>
+    <status>Progress</status>
+  </item>
+  <item>
+    <name>Repeater child controls</name>
+    <desc>Fix repeater so it uses clone</desc>
+    <priority>High</priority>
+    <order>100</order>
+    <status>Complete</status>
+  </item>
+  <item>
+    <name>App.Config</name>
+    <desc>Implement app.config file for settings. This includes loading the database (currently that happens in INITIALISE!!)</desc>
+    <priority>High</priority>
+    <order>100</order>
+    <status>Progress</status>
+  </item>
+  <item>
+    <name>Postback</name>
+    <desc>Insert postback info into form if exists, and validate input - adding slashes if necessary</desc>
+    <priority>High</priority>
+    <order>60</order>
+    <status>Complete</status>
+  </item>
+  <item>
+    <name>Postback Events</name>
+    <desc>Postbacks that are executed via controls, should call in Page_Postback. </desc>
+    <priority>Medium</priority>
+    <order>55</order>
+    <status>New</status>
+  </item>
+  <item>
+    <name>Postback JS</name>
+    <desc>
+      Create a generic postback JS function to amend... Requires the addition of JS code to every page... maybe best is to keep the JS in Code section and include
+      it as template... OR, call a PHP file that returns javascript -> by opening up the script
+    </desc>
+    <priority>Medium</priority>
+    <order>50</order>
+    <status>Complete</status>
+  </item>
+  <item>
+    <name>Postback Event</name>
+    <desc>
+      Call user postback function if set. (Page_Postback event)
+    </desc>
+    <priority>Medium</priority>
+    <order>50</order>
+    <status>New</status>
+  </item>
+  <item>
+    <name>Theme loading</name>
+    <desc>Implement recursive CSS includes (using all files if no theme is specified)</desc>
+    <priority>Low</priority>
+    <order>1</order>
+    <status>New</status>
+  </item>
+  <item>
+    <name>Special code parsing</name>
+    <desc>
+      [= ] blocks inside the template pages (especially for scripts). Alternatively, have a special script tag. This might be 
+      preferable as ASP.NET functionality uses the control.ClientID for example, and PSP still needs to call Page.FindControl().
+      Done preliminary ControlID.Property and ControlID.Method.
+    </desc>
+    <priority>Medium</priority>
+    <order>50</order>
+    <status>Progress</status>
+  </item>
+  <item>
+    <name>Databinding Events</name>
+    <desc>Allow user to set a databinding method.</desc>
+    <priority>Medium</priority>
+    <order>50</order>
+    <status>Complete</status>
+  </item>
+  <item>
+    <name>Ajax support for Grid</name>
+    <desc>Grid using Ajax for sorting and paging.</desc>
+    <priority>Low</priority>
+    <order>25</order>
+    <status>New</status>
+  </item>
+  <item>
+    <name>DOM Class</name>
+    <desc>Implement a DOM class for common methods and allow for PHP5</desc>
+    <priority>High</priority>
+    <order>100</order>
+    <status>Complete</status>
+  </item>
+  <item>
+    <name>Control Rendering</name>
+    <desc>There needs to be some render control to determine how 
+    to handle controls that are either found in a template or created 
+    programmatically.
+      Currently the Attribute control is attached to the 
+      parent's node, which may not be defined. This needs 
+      addressing. 
+      Essentially, Controls that are added progmtc
+      will not be Preloaded and therefore not loaded with their data.
+    </desc>
+    <priority>High</priority>
+    <order>90</order>
+    <status>Progress</status>
+  </item>
+  <item>
+    <name>Grid Selectors</name>
+    <desc>
+      Grid selectors
+    </desc>
+    <priority>Medium</priority>
+    <order>60</order>
+    <status>New</status>
+  </item>
+  <item>
+    <name>Grid Columns and Processors</name>
+    <desc>Workout how to handle Grid Columns that either use templates, or callbacks. Will require getting into RepeaterRow 
+      and getting the column items prior to rendering the row control. Might also implement Grid Databinding for the user.
+    </desc>
+    <priority>Medium</priority>
+    <order>55</order>
+    <status>New</status>
+  </item>
+  <item>
+    <name>Skins for Themes</name>
+    <desc>Allow tags to have a SkinID and a skin ref file (mostly for images and anchor controls).</desc>
+    <priority>Low</priority>
+    <order>1</order>
+    <status>New</status>
+  </item>
+  <item>
+    <name>PHP updatable XML Documentation</name>
+    <desc>Create PHP pages for docs that allow the modification of the under XML.</desc>
+    <priority>Low</priority>
+    <order>1</order>
+    <status>New</status>
+  </item>
+  <item>
+    <name>Group Item Caveat</name>
+    <desc>Group Item controls currently search back to the Base for their parent, but what if their parent is within a repeater control ??</desc>
+    <priority>High</priority>
+    <order>85</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>PSP and JS integration</name>
+    <desc>Think more about how to better integrate the server and client code. One idea is to use [= ] inline 
+    blocks within the script blocks to call a static class...</desc>
+    <priority>Low</priority>
+    <order>10</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Back Reference to Controls within Page</name>
+    <desc>Controls can be access via $this->$controlid in any BasePage object. 
+    This isn't working for Controls with Control parents. Likely a reference issue but I can't find it. See BaseHasControls.SetProperty() and PageControl.Control_Init()</desc>
+    <priority>Low</priority>
+    <order>1</order>
+    <status>In Progress</status>
+  </item>
+
+  <item>
+    <name>Grid selectors</name>
+    <desc>Currently, the rows know how many checkboxes are active via memory, but what about after postback? need to fix.</desc>
+    <priority>Low</priority>
+    <order>15</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Postback security</name>
+    <desc>Forms should include a postback checker (hidden encypted key to prove where they came from).</desc>
+    <priority>Low</priority>
+    <order>20</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Profiler</name>
+    <desc>Profiling system for queries and Page events</desc>
+    <priority>Low</priority>
+    <order>1</order>
+    <status>Progress</status>
+  </item>
+
+  <item>
+    <name>Check for user overriding base</name>
+    <desc>Replace check in WebsiteControl to ensure users don't override events without calling the parent. Actually, should 
+    remove this altogether, creating a control function that somehow calls the parent classes for it.</desc>
+    <priority>Low</priority>
+    <order>1</order>
+    <status>Progress</status>
+  </item>
+
+  <item>
+    <name>Grid templates</name>
+    <desc>Allow user css to easily overwrite the grid.</desc>
+    <priority>Low</priority>
+    <order>1</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Page/Master ID Conflicts</name>
+    <desc>If a control has a duplicate ID between Page and Master, it isn't picked up. 
+      Which means, GetClientID needs to append the master name to itself...
+    </desc>
+    <priority>Medium</priority>
+    <order>50</order>
+    <status>Complete</status>
+  </item>
+
+  <item>
+    <name>Inline Code Blocks</name>
+    <desc>Currently inline blocks work like this: After the page is rendered, the document is 
+    searched for the inline blocks from the Page's point of view. Anything found will be rendered via the Page. 
+    However, before this happens, both the Repeater control and the Ajax control, in their render methods, parse their 
+    data for these respectively. Might require a rethink.</desc>
+    <priority>Low</priority>
+    <order>1</order>
+    <status>Progress</status>
+  </item>
+
+
+  <item>
+    <name>ENTER and postback</name>
+    <desc>Cannot easily implement the use of the ENTER key with the current buttons as they are 
+    actually ANCHOR tags, and don't suppor the click() event...</desc>
+    <priority>Low</priority>
+    <order>1</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Binding to JSI</name>
+    <desc>Currently psp is bound to JSI - should provide options if JSI isn't available.</desc>
+    <priority>Low</priority>
+    <order>5</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Datasource SortRows()</name>
+    <desc>Implement datasource sorting, also for databaseresource datasource and xml datasource.</desc>
+    <priority>Low</priority>
+    <order>19</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Client IDs</name>
+    <desc>GetOwner() in BaseHasControls should look for anything that has Unique controls and return that. Further, the base GetClientID should 
+    append the owner's client id for any control with an owner with unique children - so this should be recursive.</desc>
+    <priority>Medium</priority>
+    <order>55</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Inline code blocks in controls</name>
+    <desc>Currently, RepeaterRow, Ajax, and DataTable all call the inline parser themselves. Should be done in base.Control_Render().</desc>
+    <priority>Medium</priority>
+    <order>55</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Ajax and lifecycle</name>
+    <desc>DataTable highlights the need to put the Ajax event after Load, as the load event would invariably set the Datasource. Currently, datasource 
+    for datatable control must be set in Init event.</desc>
+    <priority>High</priority>
+    <order>75</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Scripts on pages</name>
+    <desc>
+      Script elements within a page template must use &amp;lt; syntax for less-than symbols.
+    </desc>
+    <priority>Medium</priority>
+    <order>55</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Postback data clean</name>
+    <desc>Postback shouldn't add slashes by default - this should occur 
+    only in the database calls. Also, HTML entities isn't a great way to do business. Should look into it. (Because then when the developer 
+    gets the value in the postback, slashes will be there already, when they may not be needed).</desc>
+    <priority>Medium</priority>
+    <order>50</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Event Order</name>
+    <desc>Postback events and Control Loads. Shouldn't a Postback event come BEFORE a control's load??? For example, if you want to 
+    amend something to a repeater in a postback event, you can't as the repeater's Load event has already been called. 
+    Should also consider removing the double Page->Preload call.</desc>
+    <priority>High</priority>
+    <order>100</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>CssClasses for DataTable</name>
+    <desc>Not only DataTable, but also Button and InputTable. Need to allow for generic Css.</desc>
+    <priority>Medium</priority>
+    <order>51</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Input Groups</name>
+    <desc>Input groups like selects should be able to contain child controls that don't specify the 
+    the parent group - it should be obvious.</desc>
+    <priority>Medium</priority>
+    <order>44</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Ajax automation output</name>
+    <desc>As Ajax now allows manual output controls - the way output controls are defined within the Control, needs to be reassessed.</desc>
+    <priority>Medium</priority>
+    <order>30</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>RequireAll and directories</name>
+    <desc>RequireAll should include all files in the current directory BEFORE adding children in the subdirectories. 
+    It now does this but should also sort by filename (as UNIX systems will list by date). Can't do this as is very easily because 
+    of the FoundFile class and natcasesort() only works on strings.</desc>
+    <priority>Medium</priority>
+    <order>60</order>
+    <status>In Progress</status>
+  </item>
+
+  <item>
+    <name>Buttons and GridButtons (DataTable Buttons)</name>
+    <desc>Need to unify these more. Too many discrepancies between the types of buttons.</desc>
+    <priority>Low-Medium</priority>
+    <order>20</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>remove :psp namespace on html output</name>
+    <desc>remove :psp namespace on html output</desc>
+    <priority>Low</priority>
+    <order>2</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Resource handling lockdown</name>
+    <desc>Currently resources can override properties of the control that they shouldn't. also currently is case sensitive. 
+    Also, Literal-&gt;Text allows markup. This is hardcoded. It should be via an attribute in the resource file and then in the Render 
+    there is another variable called [Property]Replace.</desc>
+    <priority>Medium</priority>
+    <order>50</order>
+    <status>New</status>
+  </item>
+
+  <item>
+    <name>Improve Caching</name>
+    <desc>Limit cache size, ensure clear doesn't allow a page with extra data (such as loaded .Value of an Input control) to be the cached one!</desc>
+    <priority>Medium</priority>
+    <order>55</order>
+    <status>New</status>
+  </item>
+  <!--
+  
+  <item>
+    <name></name>
+    <desc></desc>
+    <priority></priority>
+    <order>0</order>
+    <status></status>
+  </item>
+  
+  -->
+</todo>

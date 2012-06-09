@@ -1,0 +1,28 @@
+.PSPInputTable
+{
+    margin: 0px;
+    padding: 0px;
+}
+.PSPInputTable .PSPInputTableTable
+{
+    background-color: #CCCCFF;
+    width: 25em;
+    margin: 0px;
+}
+.PSPInputTable .PSPInputTableHeading
+{
+    background-color: Gray;
+    color: White;
+    text-align: center;
+}
+.PSPInputTable .PSPInputTableTable td, .PSPInputTable .PSPInputTableTable th
+{
+    padding: 2px;
+    text-align: center;
+    
+    font-size: 95%;
+}
+.PSPInputTable .PSPInputTableTable input,.PSPInputTable .PSPInputTableTable textarea, .PSPInputTable .PSPInputTableTable select 
+{
+    font-size: 100%;
+}

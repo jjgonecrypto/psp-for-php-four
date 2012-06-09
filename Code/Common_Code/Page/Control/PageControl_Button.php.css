@@ -1,0 +1,36 @@
+
+.PSPButton
+{
+	background-color: #cccccc;
+	float: left;
+	margin: 3px;
+}
+.PSPButton a
+{
+	display: block;
+	width: 5em;
+	float: left;
+	text-decoration: none;
+}
+.PSPButton a:hover 
+{
+	background-color: White;
+	cursor: pointer;
+}
+.PSPButton a:active
+{
+	background-color: yellow;
+}
+.PSPButton div
+{
+	color: Black;
+	font-weight: normal;
+	border: 1px solid gray;
+	padding: 3px;
+	text-align: center;
+}
+
+.PSPButtonDown
+{
+	background-color: yellow;
+}

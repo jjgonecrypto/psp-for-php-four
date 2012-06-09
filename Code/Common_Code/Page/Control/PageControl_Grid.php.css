@@ -1,0 +1,127 @@
+
+	.PSPGridControl
+	{
+		width: 100%;
+		background-color: #f4efe7;
+		border: 1px solid black;
+		padding: 0px;
+	}
+	
+	.PSPGridHeading
+	{
+	
+		background-color: orange;
+		color: white;
+		font-weight: bold;
+		padding: 3px;  
+		text-align: center;
+		border-bottom: 1px solid black;
+		
+	}
+	.PSPGridControl .PSPGridHelperText
+	{
+	    color: gray;
+	    font-size: 90%;
+	}
+	
+	.PSPGridTable
+	{
+		margin: 1px;
+		//margin: 0px;
+	    border-collapse: collapse;
+		width: 99%;
+		margin-top: 2px;
+	}
+	.PSPGridTable .PSPGridRowHover
+	{
+		background-color: White;
+		cursor: pointer;
+	}
+	
+	.PSPGridTable .PSPGridHeaders th
+	{
+	    background-color: #e7e8e9;
+	    color: black;
+	    font-weight: bold;
+	    
+	}
+	.PSPGridTable .PSPGridSelectorHeader
+	{
+		width: 10px;	
+	}
+	.PSPGridTable td, .PSPGridControl th
+	{
+		padding: 4px;
+		border: 1px solid #cccccc;
+		
+	}
+	.PSPGridTable td
+	{
+	    
+	}
+	 .PSPGridTable th
+	 {
+		
+	 }
+	 .PSPGridTable .PSPGridRowSelector
+	 {
+		text-align: center;
+		
+	 }
+	.PSPGridTable .SelectedRow
+	{
+		background-color: #daf253;
+	}
+	.PSPGridTable  .SelectedRow.Hover
+	{
+		background-color: #dff855;
+	}
+	.PSPGridButtons
+	{
+	    padding: 3px;  
+		text-align: center;
+		background-color: #e7e8e9;
+		height: 2.5em;
+	}
+	.PSPGridButton
+	{
+		background-color: #cccccc;
+		float: left;
+	    
+		margin: 3px;
+	}
+	.PSPGridButton a
+	{
+		display: block;
+		width: 5em;
+		float: left;
+	}
+	.PSPGridButton a:hover 
+	{
+		background-color: White;
+		cursor: pointer;
+	}
+	.PSPGridButton div
+	{
+		color: Black;
+		font-weight: normal;
+		border: 1px solid gray;
+		padding: 3px;
+	}
+	
+	.PSPGridButtonDown
+	{
+		background-color: yellow;
+	}
+    .PSPGridButtonsHelper
+	{
+	    float: left;
+	    margin-left: 3px;
+	    
+	}
+	.PSPGridButtonsHelper div
+	{
+	    color: gray;
+	    font-size: 90%;
+	    text-align: left;
+	}
